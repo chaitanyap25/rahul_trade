@@ -1,0 +1,13 @@
+jenkins:
+
+admin
+cb44e3a1d88346259b1f5fbb57cd3d39
+
+python
+
+git@1990
+
+git: 
+Psw: git@1990
+
+https://github.com/chaitanyap25/trading.git
