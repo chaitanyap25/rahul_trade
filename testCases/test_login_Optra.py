@@ -26,26 +26,9 @@ class Test_001_Login:
 
         # self.lp.selectexpiry(self.exp_date)
         # wait = WebDriverWait(self.driver, 10)
-        for i in range(1, 2):
-            self.lp.getoptiondata(self.stk_price)
-            time.sleep(1*60)
-
-        # self.lp.clickcon()
-        # self.lp.clicklo()
-        # self.lp.setusername(self.username)
-        # wait = WebDriverWait(self.driver, 10)
-        # self.lp.setpsw(self.password)
-        # self.lp.clicklogin()
-        # act_title = self.driver.title
-        # print(act_title)
-        # self.lp.clickpo()
-        # wait = WebDriverWait(self.driver, 10)
-        # self.lp.clickpaper()
-        # if act_title == "Swag Labs":
-        #     assert True
-        # else:
-        #     self.driver.save_screenshot(".\\Screenshots\\"+"test_login.png")
-        #     assert False
+        # for i in range(1, 1):
+        self.lp.getoptiondata(self.stk_price)
+            # time.sleep(1*60)
 
         self.driver.close()
 
