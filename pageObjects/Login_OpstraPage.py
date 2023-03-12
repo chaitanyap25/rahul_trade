@@ -91,7 +91,7 @@ class Login_OpstraPage:
         sheet.cell(row=new_row, column=3).value = str(put_ltp[0:6])
         sheet.cell(row=new_row, column=4).value = date.today()
         sheet.cell(row=new_row, column=5).value = time_string
-        sheet.cell(row=new_row, column=6).value = total
+        sheet.cell(row=new_row, column=6).value = round(total,2)
 
         wb.save('TestData/Option_trade.xlsx')
         wb.close()
