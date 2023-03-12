@@ -19,35 +19,6 @@ class Login_OpstraPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def setusername(self, name):
-        self.driver.find_element(By.ID, self.username).send_keys(name)
-
-    def setpsw(self, password):
-        self.driver.find_element(By.ID, self.psw).send_keys(password)
-        # EC.presence_of_element_located(By.ID, self.psw)
-
-    def clicklogin(self):
-        self.driver.find_element(By.ID, self.login).click()
-
-    def clickcon(self):
-        self.driver.find_element(By.XPATH, self.con).click()
-
-    def clicklo(self):
-        self.driver.find_element(By.XPATH, self.lo).click()
-
-    def clickpo(self):
-        self.driver.find_element(By.XPATH, self.po).click()
-
-    def clickpaper(self):
-        try:
-            WebDriverWait(self.driver, 3)
-            var = self.driver.find_element(By.XPATH, self.expand)
-            print("count button :" + len(var))
-            print("verify button :"+var.is_displayed())
-            self.driver.find_element(By.XPATH, self.expand).click()
-        finally:
-            print("no element")
-
 # //-------------------------------------------
 
     def selectexpiry(self, exp_date):
@@ -104,8 +75,8 @@ class Login_OpstraPage:
         new_row = sheet.max_row + 1
         ce = call_ltp.split(".")
         pe = put_ltp.split(".")
-
-        profit = (call_buy - int(ce[0])) + (put_buy - int(pe[0]))
+        print(call_ltp[0:6])
+        profit = (call_buy - int(call_ltp[0:6])) + (put_buy - int(put_ltp[0:6]))
         total = profit*50
         print(total)
 
@@ -116,8 +87,8 @@ class Login_OpstraPage:
             # sheet.append(sheet.max_row+1)
 
         sheet.cell(row=new_row, column=1).value = nifty_fut
-        sheet.cell(row=new_row, column=2).value = str(ce[0])
-        sheet.cell(row=new_row, column=3).value = str(pe[0])
+        sheet.cell(row=new_row, column=2).value = str(call_ltp[0:6])
+        sheet.cell(row=new_row, column=3).value = str(put_ltp[0:6])
         sheet.cell(row=new_row, column=4).value = date.today()
         sheet.cell(row=new_row, column=5).value = time_string
         sheet.cell(row=new_row, column=6).value = total
@@ -126,6 +97,6 @@ class Login_OpstraPage:
         wb.close()
 
         # ------------------------send to telegram----------------------------------------------
-       # msg = "Chaitanya : Your profit is "+str(total) + " on time " +str(time_string)+" with CE at "+str(ce[0])+" and PE at "+str(pe[0])
-        #url = 'https://api.telegram.org/bot6006884871:AAFqjs2rjTKfn7LYonjdmogq6v4-LAEegTU/sendMessage?chat_id=-894738745&text="{}"'.format(msg)
-        #requests.get(url)
+        # msg = "Chaitanya : Your profit is "+str(total) + " on time " +str(time_string)+" with CE at "+str(ce[0])+" and PE at "+str(pe[0])
+        # url = 'https://api.telegram.org/bot6006884871:AAFqjs2rjTKfn7LYonjdmogq6v4-LAEegTU/sendMessage?chat_id=-894738745&text="{}"'.format(msg)
+        # requests.get(url)
