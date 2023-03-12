@@ -26,7 +26,7 @@ class Test_001_Login:
 
         # self.lp.selectexpiry(self.exp_date)
         # wait = WebDriverWait(self.driver, 10)
-        for i in range(1, 5):
+        for i in range(1, 2):
             self.lp.getoptiondata(self.stk_price)
             time.sleep(1*60)
 
