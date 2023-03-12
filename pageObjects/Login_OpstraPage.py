@@ -29,8 +29,8 @@ class Login_OpstraPage:
 
     def getoptiondata(self, stk_price):
 
-        call_buy = 290
-        put_buy = 200
+        call_buy = 288.80
+        put_buy = 203.30
 
         fut = "//*[@id = 'app']/div/div[3]/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div/div[1]"
         nifty_fut = self.driver.find_element(By.XPATH, fut).text
@@ -76,7 +76,7 @@ class Login_OpstraPage:
         ce = call_ltp.split(".")
         pe = put_ltp.split(".")
         print(call_ltp[0:6])
-        profit = (call_buy - float(call_ltp[0:6])) + (put_buy - float(put_ltp[0:6]))
+        profit = (float(call_buy) - float(call_ltp[0:6])) + (float(put_buy) - float(put_ltp[0:6]))
         total = profit*50
         print(total)
 
@@ -97,7 +97,7 @@ class Login_OpstraPage:
         wb.close()
 
         # ------------------------send to telegram----------------------------------------------
-        msg = "Chaitanya : Your profit is "+str(round(total,2)) + " on time " +str(time_string)+" with CE at "+str(ce[0])+" and PE at "+str(pe[0])
+        msg = "Rahul : Your profit is "+str(round(total,2)) + " on time " +str(time_string)+" with CE at "+str(ce[0])+" and PE at "+str(pe[0])
         url1 = 'https://api.telegram.org/bot6006884871:AAFqjs2rjTKfn7LYonjdmogq6v4-LAEegTU/sendMessage?chat_id=-894738745&text="{}"'.format(msg)
 #         requests.get(url)
         self.driver.get(url1)
