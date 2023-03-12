@@ -76,7 +76,7 @@ class Login_OpstraPage:
         ce = call_ltp.split(".")
         pe = put_ltp.split(".")
         print(call_ltp[0:6])
-        profit = (call_buy - int(call_ltp[0:6])) + (put_buy - int(put_ltp[0:6]))
+        profit = (call_buy - float(call_ltp[0:6])) + (put_buy - float(put_ltp[0:6]))
         total = profit*50
         print(total)
 
